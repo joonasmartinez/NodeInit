@@ -2,5 +2,15 @@ const os = require('os');
 
 const { freemem, totalmem } = os;
 
-console.log(`Livre: ${parseInt(freemem() / 1024 / 1024)} MB`, `Total: ${parseInt(totalmem() / 1024 / 1024)} MB`, `Usage: ${parseInt((freemem/totalmem)*100)}% `);
+const total = parseInt(totalmem() / 1024 / 1024);
+const mem = parseInt(freemem() / 1024 / 1024)
+const percent = parseInt((mem/total) * 100);
+
+const stats = {
+    free:`${mem}MB`,
+    total: `${total}MB`,
+    usage:percent
+}
+
+console.table(stats);
 
