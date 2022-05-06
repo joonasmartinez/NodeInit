@@ -31,5 +31,7 @@ http.createServer((req, res) =>{
          
     }
 
-    return res.end('create')
+    data.urls.push({name, url})
+
+    return writeFile((message)=>{res.end(message)})
 }).listen(3000, ()=> console.log("Api is running!"))
